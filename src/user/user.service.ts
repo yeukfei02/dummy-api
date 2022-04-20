@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { CreateUserDto } from './dto/createUser.dto';
+import { UpdateUserDto } from './dto/updateUser.dto';
 import { PrismaService } from '../prisma.service';
 import { users } from '@prisma/client';
 import dayjs from 'dayjs';
@@ -49,6 +50,39 @@ export class UserService {
 
   async getUserById(id: string): Promise<any> {
     const users = await this.prisma.users.findUnique({
+      where: {
+        id: id,
+      },
+    });
+    return users;
+  }
+
+  async updateUserById(id: string, updateUserDto: UpdateUserDto) {
+    const users = await this.prisma.users.update({
+      where: {
+        id: id,
+      },
+      data: {
+        title: updateUserDto.title,
+        first_name: updateUserDto.first_name,
+        last_name: updateUserDto.last_name,
+        gender: updateUserDto.gender,
+        email: updateUserDto.email,
+        date_of_birth: dayjs(updateUserDto.date_of_birth)
+          .tz('Asia/Hong_Kong')
+          .toISOString(),
+        register_date: dayjs(updateUserDto.register_date)
+          .tz('Asia/Hong_Kong')
+          .toISOString(),
+        phone: updateUserDto.phone,
+        picture: updateUserDto.picture,
+      },
+    });
+    return users;
+  }
+
+  async deleteUserById(id: string): Promise<any> {
+    const users = await this.prisma.users.delete({
       where: {
         id: id,
       },
