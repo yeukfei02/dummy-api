@@ -12,11 +12,23 @@ import { PostService } from './post.service';
 import { CreatePostDto } from './dto/createPost.dto';
 import { UpdatePostDto } from './dto/updatePost.dto';
 
+import { ApiResponse } from '@nestjs/swagger';
+import { CreatePostResponse } from './response/createPost.response';
+import { GetPostsResponse } from './response/getPosts.response';
+import { GetPostByIdResponse } from './response/getPostById.response';
+import { UpdatePostByIdResponse } from './response/updatePostById.response';
+import { DeletePostByIdResponse } from './response/deletePostById.response';
+
 @Controller('post')
 export class PostController {
   constructor(private readonly postService: PostService) {}
 
   @Post()
+  @ApiResponse({
+    status: 201,
+    description: 'Successful response',
+    type: CreatePostResponse,
+  })
   async createPost(@Body() createPostDto: CreatePostDto): Promise<any> {
     const post = await this.postService.createPost(createPostDto);
 
@@ -25,6 +37,11 @@ export class PostController {
   }
 
   @Get()
+  @ApiResponse({
+    status: 200,
+    description: 'Successful response',
+    type: GetPostsResponse,
+  })
   async getPosts(
     @Query('page') page: string,
     @Query('per_page') perPage: string,
@@ -45,6 +62,11 @@ export class PostController {
   }
 
   @Get('/:id')
+  @ApiResponse({
+    status: 200,
+    description: 'Successful response',
+    type: GetPostByIdResponse,
+  })
   async getPostById(@Param('id') id: string): Promise<any> {
     const post = await this.postService.getPostById(id);
 
@@ -53,6 +75,11 @@ export class PostController {
   }
 
   @Put('/:id')
+  @ApiResponse({
+    status: 200,
+    description: 'Successful response',
+    type: UpdatePostByIdResponse,
+  })
   async updatePostById(
     @Param('id') id: string,
     @Body() updatePostDto: UpdatePostDto,
@@ -64,6 +91,11 @@ export class PostController {
   }
 
   @Delete('/:id')
+  @ApiResponse({
+    status: 200,
+    description: 'Successful response',
+    type: DeletePostByIdResponse,
+  })
   async deletePostById(@Param('id') id: string): Promise<any> {
     const post = await this.postService.deletePostById(id);
 

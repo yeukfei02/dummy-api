@@ -12,11 +12,23 @@ import { UserService } from './user.service';
 import { CreateUserDto } from './dto/createUser.dto';
 import { UpdateUserDto } from './dto/updateUser.dto';
 
+import { ApiResponse } from '@nestjs/swagger';
+import { CreateUserResponse } from './response/createUser.response';
+import { GetUsersResponse } from './response/getUsers.response';
+import { GetUserByIdResponse } from './response/getUserById.response';
+import { UpdateUserByIdResponse } from './response/updateUserById.response';
+import { DeleteUserByIdResponse } from './response/deleteUserById.response';
+
 @Controller('users')
 export class UserController {
   constructor(private readonly userService: UserService) {}
 
   @Post()
+  @ApiResponse({
+    status: 201,
+    description: 'Successful response',
+    type: CreateUserResponse,
+  })
   async createUser(@Body() createUserDto: CreateUserDto): Promise<any> {
     const users = await this.userService.createUser(createUserDto);
 
@@ -25,6 +37,11 @@ export class UserController {
   }
 
   @Get()
+  @ApiResponse({
+    status: 200,
+    description: 'Successful response',
+    type: GetUsersResponse,
+  })
   async getUsers(
     @Query('page') page: string,
     @Query('per_page') perPage: string,
@@ -45,6 +62,11 @@ export class UserController {
   }
 
   @Get('/:id')
+  @ApiResponse({
+    status: 200,
+    description: 'Successful response',
+    type: GetUserByIdResponse,
+  })
   async getUserById(@Param('id') id: string): Promise<any> {
     const user = await this.userService.getUserById(id);
 
@@ -53,6 +75,11 @@ export class UserController {
   }
 
   @Put('/:id')
+  @ApiResponse({
+    status: 200,
+    description: 'Successful response',
+    type: UpdateUserByIdResponse,
+  })
   async updateUserById(
     @Param('id') id: string,
     @Body() updateUserDto: UpdateUserDto,
@@ -64,6 +91,11 @@ export class UserController {
   }
 
   @Delete('/:id')
+  @ApiResponse({
+    status: 200,
+    description: 'Successful response',
+    type: DeleteUserByIdResponse,
+  })
   async deleteUserById(@Param('id') id: string): Promise<any> {
     const user = await this.userService.deleteUserById(id);
 

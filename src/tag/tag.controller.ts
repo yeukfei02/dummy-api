@@ -2,11 +2,20 @@ import { Controller, Post, Get, Body, Query } from '@nestjs/common';
 import { TagService } from './tag.service';
 import { CreateTagDto } from './dto/createTag.dto';
 
+import { ApiResponse } from '@nestjs/swagger';
+import { CreateTagResponse } from './response/createTag.response';
+import { GetTagsResponse } from './response/getTags.response';
+
 @Controller('tag')
 export class TagController {
   constructor(private readonly tagService: TagService) {}
 
   @Post()
+  @ApiResponse({
+    status: 201,
+    description: 'Successful response',
+    type: CreateTagResponse,
+  })
   async createTag(@Body() createTagDto: CreateTagDto): Promise<any> {
     const tag = await this.tagService.createTag(createTagDto);
 
@@ -15,6 +24,11 @@ export class TagController {
   }
 
   @Get()
+  @ApiResponse({
+    status: 200,
+    description: 'Successful response',
+    type: GetTagsResponse,
+  })
   async getTags(
     @Query('page') page: string,
     @Query('per_page') perPage: string,

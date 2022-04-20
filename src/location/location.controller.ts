@@ -2,11 +2,20 @@ import { Controller, Post, Get, Body, Query } from '@nestjs/common';
 import { LocationService } from './location.service';
 import { CreateLocationDto } from './dto/createLocation.dto';
 
+import { ApiResponse } from '@nestjs/swagger';
+import { CreateLocationResponse } from './response/createLocation.response';
+import { GetLocationsResponse } from './response/getLocations.response';
+
 @Controller('location')
 export class LocationController {
   constructor(private readonly locationService: LocationService) {}
 
   @Post()
+  @ApiResponse({
+    status: 201,
+    description: 'Successful response',
+    type: CreateLocationResponse,
+  })
   async createLocation(
     @Body() createLocationDto: CreateLocationDto,
   ): Promise<any> {
@@ -19,6 +28,11 @@ export class LocationController {
   }
 
   @Get()
+  @ApiResponse({
+    status: 200,
+    description: 'Successful response',
+    type: GetLocationsResponse,
+  })
   async getLocations(
     @Query('page') page: string,
     @Query('per_page') perPage: string,
