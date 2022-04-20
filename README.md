@@ -29,6 +29,15 @@ $ yarn run format
 // run test case
 $ yarn run test
 
+// create module
+$ nest g module <module-name>
+
+// create controller
+$ nest g controller <controller-name>
+
+// create service
+$ nest g service <service-name>
+
 // generate schema.prisma and prisma client
 $ yarn run prisma:generate
 
