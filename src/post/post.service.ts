@@ -15,7 +15,7 @@ export class PostService {
   constructor(private readonly prisma: PrismaService) {}
 
   async createPost(createPostDto: CreatePostDto): Promise<post> {
-    const posts = await this.prisma.post.create({
+    const post = await this.prisma.post.create({
       data: {
         text: createPostDto.text,
         image: createPostDto.image,
@@ -31,7 +31,7 @@ export class PostService {
         comments: true,
       },
     });
-    return posts;
+    return post;
   }
 
   async getPosts(): Promise<any> {

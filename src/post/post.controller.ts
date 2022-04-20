@@ -17,9 +17,9 @@ export class PostController {
 
   @Post()
   async createPost(@Body() createPostDto: CreatePostDto): Promise<any> {
-    const posts = await this.postService.createPost(createPostDto);
+    const post = await this.postService.createPost(createPostDto);
 
-    const response = { message: 'createpost', posts: posts };
+    const response = { message: 'createPost', post: post };
     return response;
   }
 
