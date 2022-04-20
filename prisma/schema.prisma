@@ -20,7 +20,9 @@ model users {
   picture       String?
   created_at    DateTime   @default(now())
   updated_at    DateTime   @default(now())
+  comments      comment[]
   locations     location[]
+  post          post[]
 
   @@index([created_at], map: "index_users_on_created_at")
   @@index([date_of_birth], map: "index_users_on_date_of_birth")
@@ -42,10 +44,10 @@ model location {
   state      String   @db.VarChar(30)
   country    String   @db.VarChar(30)
   timezone   String   @db.VarChar(30)
-  users_id   String   @db.Uuid
+  users_id   String?  @db.Uuid
   created_at DateTime @default(now())
   updated_at DateTime @default(now())
-  users      users    @relation(fields: [users_id], references: [id])
+  users      users?   @relation(fields: [users_id], references: [id])
 
   @@index([city], map: "index_location_on_city")
   @@index([country], map: "index_location_on_country")
@@ -54,6 +56,62 @@ model location {
   @@index([street], map: "index_location_on_street")
   @@index([timezone], map: "index_location_on_timezone")
   @@index([updated_at], map: "index_location_on_updated_at")
+  @@index([users_id], map: "index_location_on_users_id")
+}
+
+model post {
+  id           String    @id @default(uuid()) @db.Uuid
+  text         String    @db.VarChar(50)
+  image        String?
+  likes        Int
+  publish_date DateTime?
+  users_id     String?   @db.Uuid
+  created_at   DateTime  @default(now())
+  updated_at   DateTime  @default(now())
+  owners       users?    @relation(fields: [users_id], references: [id])
+  comments     comment[]
+  tags         tag[]
+
+  @@index([created_at], map: "index_post_on_created_at")
+  @@index([image], map: "index_post_on_image")
+  @@index([likes], map: "index_post_on_likes")
+  @@index([publish_date], map: "index_post_on_publish_date")
+  @@index([text], map: "index_post_on_text")
+  @@index([updated_at], map: "index_post_on_updated_at")
+  @@index([users_id], map: "index_post_on_users_id")
+}
+
+model tag {
+  id         String   @id @default(uuid()) @db.Uuid
+  name       String   @db.VarChar(30)
+  post_id    String?  @db.Uuid
+  created_at DateTime @default(now())
+  updated_at DateTime @default(now())
+  post       post?    @relation(fields: [post_id], references: [id])
+
+  @@index([created_at], map: "index_tag_on_created_at")
+  @@index([name], map: "index_tag_on_name")
+  @@index([post_id], map: "index_tag_on_post_id")
+  @@index([updated_at], map: "index_tag_on_updated_at")
+}
+
+model comment {
+  id           String    @id @default(uuid()) @db.Uuid
+  message      String?   @db.VarChar(500)
+  publish_date DateTime?
+  post_id      String?   @db.Uuid
+  created_at   DateTime  @default(now())
+  updated_at   DateTime  @default(now())
+  users_id     String?   @db.Uuid
+  post         post?     @relation(fields: [post_id], references: [id])
+  owners       users?    @relation(fields: [users_id], references: [id])
+
+  @@index([created_at], map: "index_comment_on_created_at")
+  @@index([message], map: "index_comment_on_message")
+  @@index([post_id], map: "index_comment_on_post_id")
+  @@index([publish_date], map: "index_comment_on_publish_date")
+  @@index([updated_at], map: "index_comment_on_updated_at")
+  @@index([users_id], map: "index_comment_on_users_id")
 }
 
 enum Title {
