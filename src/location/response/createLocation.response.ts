@@ -1,6 +1,9 @@
 import { ApiProperty } from '@nestjs/swagger';
 
-export class CreateLocationDto {
+export class Location {
+  @ApiProperty()
+  id: string;
+
   @ApiProperty()
   street: string;
 
@@ -18,4 +21,18 @@ export class CreateLocationDto {
 
   @ApiProperty()
   users_id: string;
+
+  @ApiProperty()
+  created_at: string;
+
+  @ApiProperty()
+  updated_at: string;
+}
+
+export class CreateLocationResponse {
+  @ApiProperty()
+  message: string;
+
+  @ApiProperty()
+  location: Location;
 }

@@ -12,11 +12,23 @@ import { CommentService } from './comment.service';
 import { CreateCommentDto } from './dto/createComment.dto';
 import { UpdateCommentDto } from './dto/updateComment.dto';
 
+import { ApiResponse } from '@nestjs/swagger';
+import { CreateCommentResponse } from './response/createComment.response';
+import { GetCommentsResponse } from './response/getComments.response';
+import { GetCommentByIdResponse } from './response/getCommentById.response';
+import { UpdateCommentByIdResponse } from './response/updateCommentById.response';
+import { DeleteCommentByIdResponse } from './response/deleteCommentById.response';
+
 @Controller('comment')
 export class CommentController {
   constructor(private readonly commentService: CommentService) {}
 
   @Post()
+  @ApiResponse({
+    status: 201,
+    description: 'Successful response',
+    type: CreateCommentResponse,
+  })
   async createComment(
     @Body() createCommentDto: CreateCommentDto,
   ): Promise<any> {
@@ -27,6 +39,11 @@ export class CommentController {
   }
 
   @Get()
+  @ApiResponse({
+    status: 200,
+    description: 'Successful response',
+    type: GetCommentsResponse,
+  })
   async getComments(
     @Query('page') page: string,
     @Query('per_page') perPage: string,
@@ -47,6 +64,11 @@ export class CommentController {
   }
 
   @Get('/:id')
+  @ApiResponse({
+    status: 200,
+    description: 'Successful response',
+    type: GetCommentByIdResponse,
+  })
   async getCommentById(@Param('id') id: string): Promise<any> {
     const comment = await this.commentService.getCommentById(id);
 
@@ -55,6 +77,11 @@ export class CommentController {
   }
 
   @Put('/:id')
+  @ApiResponse({
+    status: 200,
+    description: 'Successful response',
+    type: UpdateCommentByIdResponse,
+  })
   async updateCommentById(
     @Param('id') id: string,
     @Body() updateCommentDto: UpdateCommentDto,
@@ -69,6 +96,11 @@ export class CommentController {
   }
 
   @Delete('/:id')
+  @ApiResponse({
+    status: 200,
+    description: 'Successful response',
+    type: DeleteCommentByIdResponse,
+  })
   async deleteCommentById(@Param('id') id: string): Promise<any> {
     const comment = await this.commentService.deleteCommentById(id);
 
