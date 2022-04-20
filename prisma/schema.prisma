@@ -1,0 +1,71 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model users {
+  id            String     @id @default(uuid()) @db.Uuid
+  title         Title
+  first_name    String?    @db.VarChar(50)
+  last_name     String?    @db.VarChar(50)
+  gender        Gender
+  email         String?
+  date_of_birth DateTime?
+  register_date DateTime?
+  phone         String?
+  picture       String?
+  created_at    DateTime   @default(now())
+  updated_at    DateTime   @default(now())
+  locations     location[]
+
+  @@index([created_at], map: "index_users_on_created_at")
+  @@index([date_of_birth], map: "index_users_on_date_of_birth")
+  @@index([email], map: "index_users_on_email")
+  @@index([first_name], map: "index_users_on_first_name")
+  @@index([gender], map: "index_users_on_gender")
+  @@index([last_name], map: "index_users_on_last_name")
+  @@index([phone], map: "index_users_on_phone")
+  @@index([picture], map: "index_users_on_picture")
+  @@index([register_date], map: "index_users_on_register_date")
+  @@index([title], map: "index_users_on_title")
+  @@index([updated_at], map: "index_users_on_updated_at")
+}
+
+model location {
+  id         String   @id @default(uuid()) @db.Uuid
+  street     String   @db.VarChar(100)
+  city       String   @db.VarChar(30)
+  state      String   @db.VarChar(30)
+  country    String   @db.VarChar(30)
+  timezone   String   @db.VarChar(30)
+  users_id   String   @db.Uuid
+  created_at DateTime @default(now())
+  updated_at DateTime @default(now())
+  users      users    @relation(fields: [users_id], references: [id])
+
+  @@index([city], map: "index_location_on_city")
+  @@index([country], map: "index_location_on_country")
+  @@index([created_at], map: "index_location_on_created_at")
+  @@index([state], map: "index_location_on_state")
+  @@index([street], map: "index_location_on_street")
+  @@index([timezone], map: "index_location_on_timezone")
+  @@index([updated_at], map: "index_location_on_updated_at")
+}
+
+enum Title {
+  mr
+  ms
+  mrs
+  miss
+  dr
+}
+
+enum Gender {
+  male
+  female
+  other
+}
