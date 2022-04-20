@@ -31,6 +31,9 @@ export class UserService {
         phone: createUserDto.phone,
         picture: createUserDto.picture,
       },
+      include: {
+        locations: true,
+      },
     });
     return users;
   }
@@ -52,6 +55,9 @@ export class UserService {
     const users = await this.prisma.users.findUnique({
       where: {
         id: id,
+      },
+      include: {
+        locations: true,
       },
     });
     return users;
@@ -77,6 +83,9 @@ export class UserService {
         phone: updateUserDto.phone,
         picture: updateUserDto.picture,
       },
+      include: {
+        locations: true,
+      },
     });
     return users;
   }
@@ -85,6 +94,9 @@ export class UserService {
     const users = await this.prisma.users.delete({
       where: {
         id: id,
+      },
+      include: {
+        locations: true,
       },
     });
     return users;
