@@ -20,7 +20,7 @@ api url: <https://dummy-api-nestjs.herokuapp.com/>
 $ yarn run start:dev
 
 // run in production
-$ yarn run production
+$ yarn run start:prod
 
 // lint code
 $ yarn run lint
