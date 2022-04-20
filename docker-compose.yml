@@ -1,0 +1,48 @@
+version: '3.7'
+
+services:
+  web:
+    container_name: dummy-api
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    ports:
+      - 3000:3000
+    restart: always
+    environment:
+      - NODE_ENV=production
+    depends_on:
+      - db
+
+  db:
+    container_name: postgres
+    image: postgres:12.1
+    volumes:
+      - ./prisma/schema.sql:/docker-entrypoint-initdb.d/dump.sql
+    ports:
+      - 5432:5432
+    restart: always
+    environment:
+      POSTGRES_USER: donaldwu
+      POSTGRES_PASSWORD: donaldwu
+      POSTGRES_DB: donaldwu
+
+  prisma-studio:
+    container_name: prisma-studio
+    build:
+      context: .
+    command: yarn run prisma:studio
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    ports:
+      - 5555:5555
+    restart: always
+    environment:
+      - NODE_ENV=production
+    depends_on:
+      - web
+      - db
