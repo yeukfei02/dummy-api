@@ -4,9 +4,9 @@ this is an api replicate [dummy-api](https://dummyapi.io/docs)
 
 documentation: <https://documenter.getpostman.com/view/3827865/Uyr8kHHD>
 
-swagger url: <>
+swagger url: <https://dummy-api-nestjs.herokuapp.com/api>
 
-api url: <>
+api url: <https://dummy-api-nestjs.herokuapp.com/>
 
 ## Requirement
 
