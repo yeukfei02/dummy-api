@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.3](https://github.com/yeukfei02/dummy-api/compare/v0.1.2...v0.1.3) (2022-04-20)
+
+
+### Features
+
+* 🎸 add main api doc ([e03f4d2](https://github.com/yeukfei02/dummy-api/commit/e03f4d210d54d22c6b7bb3c7ca5c93b28e6f14c2))
+* 🎸 add seed data and remove string limit in location ([2e7bea5](https://github.com/yeukfei02/dummy-api/commit/2e7bea54e86bd7285d2f26e53de816d3312a8731))
+
+
+### Bug Fixes
+
+* 🐛 fix migration file ([dae1e9f](https://github.com/yeukfei02/dummy-api/commit/dae1e9f37c61a3127cc2190c6a14e8c09c39af18))
+
 ### [0.1.2](https://github.com/yeukfei02/dummy-api/compare/v0.1.1...v0.1.2) (2022-04-20)
 
 
