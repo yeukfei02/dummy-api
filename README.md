@@ -4,6 +4,8 @@ this is an api replicate [dummy-api](https://dummyapi.io/docs)
 
 documentation: <https://documenter.getpostman.com/view/3827865/Uyr8kHHD>
 
+swagger url: <>
+
 api url: <>
 
 ## Requirement
