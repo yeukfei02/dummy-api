@@ -40,10 +40,10 @@ model users {
 model location {
   id         String   @id @default(uuid()) @db.Uuid
   street     String   @db.VarChar(100)
-  city       String   @db.VarChar(30)
-  state      String   @db.VarChar(30)
-  country    String   @db.VarChar(30)
-  timezone   String   @db.VarChar(30)
+  city       String
+  state      String
+  country    String
+  timezone   String
   users_id   String?  @db.Uuid
   created_at DateTime @default(now())
   updated_at DateTime @default(now())
