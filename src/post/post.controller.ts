@@ -6,6 +6,7 @@ import {
   Delete,
   Body,
   Param,
+  Query,
 } from '@nestjs/common';
 import { PostService } from './post.service';
 import { CreatePostDto } from './dto/createPost.dto';
@@ -24,10 +25,22 @@ export class PostController {
   }
 
   @Get()
-  async getPosts(): Promise<any> {
-    const posts = await this.postService.getPosts();
+  async getPosts(
+    @Query('page') page: string,
+    @Query('per_page') perPage: string,
+  ): Promise<any> {
+    const pageInt = page ? parseInt(page, 10) : 1;
+    const perPageInt = page ? parseInt(perPage, 10) : 20;
 
-    const response = { message: 'getPosts', posts: posts };
+    const posts = await this.postService.getPosts(pageInt, perPageInt);
+
+    const response = {
+      message: 'getPosts',
+      data: posts,
+      total: posts.length,
+      page: pageInt,
+      limit: perPageInt,
+    };
     return response;
   }
 

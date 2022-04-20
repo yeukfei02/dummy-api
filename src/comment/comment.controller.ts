@@ -6,6 +6,7 @@ import {
   Put,
   Param,
   Delete,
+  Query,
 } from '@nestjs/common';
 import { CommentService } from './comment.service';
 import { CreateCommentDto } from './dto/createComment.dto';
@@ -26,10 +27,22 @@ export class CommentController {
   }
 
   @Get()
-  async getComments(): Promise<any> {
-    const comments = await this.commentService.getComments();
+  async getComments(
+    @Query('page') page: string,
+    @Query('per_page') perPage: string,
+  ): Promise<any> {
+    const pageInt = page ? parseInt(page, 10) : 1;
+    const perPageInt = page ? parseInt(perPage, 10) : 20;
 
-    const response = { message: 'getComments', comments: comments };
+    const comments = await this.commentService.getComments(pageInt, perPageInt);
+
+    const response = {
+      message: 'getComments',
+      data: comments,
+      total: comments.length,
+      page: pageInt,
+      limit: perPageInt,
+    };
     return response;
   }
 

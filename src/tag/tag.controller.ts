@@ -1,4 +1,4 @@
-import { Controller, Post, Get, Body } from '@nestjs/common';
+import { Controller, Post, Get, Body, Query } from '@nestjs/common';
 import { TagService } from './tag.service';
 import { CreateTagDto } from './dto/createTag.dto';
 
@@ -15,10 +15,22 @@ export class TagController {
   }
 
   @Get()
-  async getTags(): Promise<any> {
-    const tags = await this.tagService.getTags();
+  async getTags(
+    @Query('page') page: string,
+    @Query('per_page') perPage: string,
+  ): Promise<any> {
+    const pageInt = page ? parseInt(page, 10) : 1;
+    const perPageInt = page ? parseInt(perPage, 10) : 20;
 
-    const response = { message: 'getTags', tags: tags };
+    const tags = await this.tagService.getTags(pageInt, perPageInt);
+
+    const response = {
+      message: 'getTags',
+      data: tags,
+      total: tags.length,
+      page: pageInt,
+      limit: perPageInt,
+    };
     return response;
   }
 }

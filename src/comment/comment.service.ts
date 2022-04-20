@@ -32,12 +32,14 @@ export class CommentService {
     return comments;
   }
 
-  async getComments(): Promise<any> {
+  async getComments(pageInt: number, perPageInt: number): Promise<any> {
     const comments = await this.prisma.comment.findMany({
       include: {
         owners: true,
         post: true,
       },
+      skip: perPageInt * (pageInt - 1),
+      take: perPageInt,
     });
     return comments;
   }

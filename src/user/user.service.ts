@@ -38,7 +38,7 @@ export class UserService {
     return users;
   }
 
-  async getUsers(): Promise<any> {
+  async getUsers(page: number, perPage: number): Promise<any> {
     const users = await this.prisma.users.findMany({
       select: {
         id: true,
@@ -47,6 +47,8 @@ export class UserService {
         last_name: true,
         picture: true,
       },
+      skip: perPage * (page - 1),
+      take: perPage,
     });
     return users;
   }

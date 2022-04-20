@@ -34,13 +34,15 @@ export class PostService {
     return post;
   }
 
-  async getPosts(): Promise<any> {
+  async getPosts(page: number, perPage: number): Promise<any> {
     const posts = await this.prisma.post.findMany({
       include: {
         owners: true,
         tags: true,
         comments: true,
       },
+      skip: perPage * (page - 1),
+      take: perPage,
     });
     return posts;
   }

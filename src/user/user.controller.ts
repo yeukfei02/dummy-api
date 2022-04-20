@@ -6,6 +6,7 @@ import {
   Delete,
   Body,
   Param,
+  Query,
 } from '@nestjs/common';
 import { UserService } from './user.service';
 import { CreateUserDto } from './dto/createUser.dto';
@@ -24,10 +25,22 @@ export class UserController {
   }
 
   @Get()
-  async getUsers(): Promise<any> {
-    const users = await this.userService.getUsers();
+  async getUsers(
+    @Query('page') page: string,
+    @Query('per_page') perPage: string,
+  ): Promise<any> {
+    const pageInt = page ? parseInt(page, 10) : 1;
+    const perPageInt = page ? parseInt(perPage, 10) : 20;
 
-    const response = { message: 'getUsers', users: users };
+    const users = await this.userService.getUsers(pageInt, perPageInt);
+
+    const response = {
+      message: 'getUsers',
+      data: users,
+      total: users.length,
+      page: pageInt,
+      limit: perPageInt,
+    };
     return response;
   }
 
