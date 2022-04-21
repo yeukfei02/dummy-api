@@ -45,13 +45,19 @@ export class CommentController {
     type: GetCommentsResponse,
   })
   async getComments(
+    @Query('users_id') users_id: string,
     @Query('page') page: string,
     @Query('per_page') perPage: string,
   ): Promise<any> {
+    const usersId = users_id;
     const pageInt = page ? parseInt(page, 10) : 1;
     const perPageInt = page ? parseInt(perPage, 10) : 20;
 
-    const comments = await this.commentService.getComments(pageInt, perPageInt);
+    const comments = await this.commentService.getComments(
+      usersId,
+      pageInt,
+      perPageInt,
+    );
 
     const response = {
       message: 'getComments',

@@ -26,14 +26,32 @@ export class LocationService {
     return location;
   }
 
-  async getLocations(pageInt: number, perPageInt: number): Promise<location[]> {
-    const locations = await this.prisma.location.findMany({
+  async getLocations(
+    usersId: string,
+    pageInt: number,
+    perPageInt: number,
+  ): Promise<location[]> {
+    let locations = await this.prisma.location.findMany({
       include: {
         users: true,
       },
       skip: perPageInt * (pageInt - 1),
       take: perPageInt,
     });
+
+    if (usersId) {
+      locations = await this.prisma.location.findMany({
+        where: {
+          users_id: usersId,
+        },
+        include: {
+          users: true,
+        },
+        skip: perPageInt * (pageInt - 1),
+        take: perPageInt,
+      });
+    }
+
     return locations;
   }
 }
