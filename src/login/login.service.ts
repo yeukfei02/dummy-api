@@ -16,14 +16,15 @@ export class LoginService {
         email: loginDto.email,
       },
     });
-
-    const isValidPassword = bcrypt.compareSync(
-      loginDto.password,
-      users.password,
-    );
-    console.log('isValidPassword = ', isValidPassword);
-    if (isValidPassword) {
-      result = users;
+    if (users) {
+      const isValidPassword = bcrypt.compareSync(
+        loginDto.password,
+        users.password,
+      );
+      console.log('isValidPassword = ', isValidPassword);
+      if (isValidPassword) {
+        result = users;
+      }
     }
 
     return result;

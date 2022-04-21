@@ -17,7 +17,11 @@ export class LoginController {
     type: LoginResponse,
   })
   async login(@Body() loginDto: LoginDto): Promise<any> {
-    let response = {};
+    let response = {
+      message: 'login',
+      users: {},
+      token: '',
+    };
 
     const users = await this.loginService.login(loginDto);
     if (users) {

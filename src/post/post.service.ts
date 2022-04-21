@@ -34,8 +34,8 @@ export class PostService {
     return post;
   }
 
-  async getPosts(page: number, perPage: number): Promise<any> {
-    const posts = await this.prisma.post.findMany({
+  async getPosts(usersId: string, page: number, perPage: number): Promise<any> {
+    let posts = await this.prisma.post.findMany({
       include: {
         owners: true,
         tags: true,
@@ -44,6 +44,22 @@ export class PostService {
       skip: perPage * (page - 1),
       take: perPage,
     });
+
+    if (usersId) {
+      posts = await this.prisma.post.findMany({
+        where: {
+          users_id: usersId,
+        },
+        include: {
+          owners: true,
+          tags: true,
+          comments: true,
+        },
+        skip: perPage * (page - 1),
+        take: perPage,
+      });
+    }
+
     return posts;
   }
 

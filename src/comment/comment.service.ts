@@ -32,8 +32,12 @@ export class CommentService {
     return comments;
   }
 
-  async getComments(pageInt: number, perPageInt: number): Promise<any> {
-    const comments = await this.prisma.comment.findMany({
+  async getComments(
+    usersId: string,
+    pageInt: number,
+    perPageInt: number,
+  ): Promise<any> {
+    let comments = await this.prisma.comment.findMany({
       include: {
         owners: true,
         post: true,
@@ -41,6 +45,21 @@ export class CommentService {
       skip: perPageInt * (pageInt - 1),
       take: perPageInt,
     });
+
+    if (usersId) {
+      comments = await this.prisma.comment.findMany({
+        where: {
+          users_id: usersId,
+        },
+        include: {
+          owners: true,
+          post: true,
+        },
+        skip: perPageInt * (pageInt - 1),
+        take: perPageInt,
+      });
+    }
+
     return comments;
   }
 
