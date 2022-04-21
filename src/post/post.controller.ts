@@ -12,7 +12,12 @@ import { PostService } from './post.service';
 import { CreatePostDto } from './dto/createPost.dto';
 import { UpdatePostDto } from './dto/updatePost.dto';
 
-import { ApiBearerAuth, ApiHeader, ApiResponse } from '@nestjs/swagger';
+import {
+  ApiBearerAuth,
+  ApiHeader,
+  ApiQuery,
+  ApiResponse,
+} from '@nestjs/swagger';
 import { CreatePostResponse } from './response/createPost.response';
 import { GetPostsResponse } from './response/getPosts.response';
 import { GetPostByIdResponse } from './response/getPostById.response';
@@ -42,6 +47,24 @@ export class PostController {
   }
 
   @Get()
+  @ApiQuery({
+    name: 'users_id',
+    description: 'users_id',
+    required: false,
+    type: String,
+  })
+  @ApiQuery({
+    name: 'page',
+    description: 'page',
+    required: false,
+    type: String,
+  })
+  @ApiQuery({
+    name: 'per_page',
+    description: 'per_page',
+    required: false,
+    type: String,
+  })
   @ApiResponse({
     status: 200,
     description: 'Successful response',

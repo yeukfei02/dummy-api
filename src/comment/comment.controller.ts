@@ -12,7 +12,12 @@ import { CommentService } from './comment.service';
 import { CreateCommentDto } from './dto/createComment.dto';
 import { UpdateCommentDto } from './dto/updateComment.dto';
 
-import { ApiBearerAuth, ApiHeader, ApiResponse } from '@nestjs/swagger';
+import {
+  ApiBearerAuth,
+  ApiHeader,
+  ApiQuery,
+  ApiResponse,
+} from '@nestjs/swagger';
 import { CreateCommentResponse } from './response/createComment.response';
 import { GetCommentsResponse } from './response/getComments.response';
 import { GetCommentByIdResponse } from './response/getCommentById.response';
@@ -44,6 +49,24 @@ export class CommentController {
   }
 
   @Get()
+  @ApiQuery({
+    name: 'users_id',
+    description: 'users_id',
+    required: false,
+    type: String,
+  })
+  @ApiQuery({
+    name: 'page',
+    description: 'page',
+    required: false,
+    type: String,
+  })
+  @ApiQuery({
+    name: 'per_page',
+    description: 'per_page',
+    required: false,
+    type: String,
+  })
   @ApiResponse({
     status: 200,
     description: 'Successful response',

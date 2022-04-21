@@ -2,7 +2,12 @@ import { Controller, Post, Get, Body, Query } from '@nestjs/common';
 import { LocationService } from './location.service';
 import { CreateLocationDto } from './dto/createLocation.dto';
 
-import { ApiBearerAuth, ApiHeader, ApiResponse } from '@nestjs/swagger';
+import {
+  ApiBearerAuth,
+  ApiHeader,
+  ApiQuery,
+  ApiResponse,
+} from '@nestjs/swagger';
 import { CreateLocationResponse } from './response/createLocation.response';
 import { GetLocationsResponse } from './response/getLocations.response';
 
@@ -33,6 +38,24 @@ export class LocationController {
   }
 
   @Get()
+  @ApiQuery({
+    name: 'users_id',
+    description: 'users_id',
+    required: false,
+    type: String,
+  })
+  @ApiQuery({
+    name: 'page',
+    description: 'page',
+    required: false,
+    type: String,
+  })
+  @ApiQuery({
+    name: 'per_page',
+    description: 'per_page',
+    required: false,
+    type: String,
+  })
   @ApiResponse({
     status: 200,
     description: 'Successful response',
