@@ -38,6 +38,9 @@ export class UserService {
       },
       include: {
         locations: true,
+        posts: true,
+        comments: true,
+        todos: true,
       },
     });
     return users;
@@ -65,6 +68,9 @@ export class UserService {
       },
       include: {
         locations: true,
+        posts: true,
+        comments: true,
+        todos: true,
       },
     });
     return users;
@@ -92,6 +98,9 @@ export class UserService {
       },
       include: {
         locations: true,
+        posts: true,
+        comments: true,
+        todos: true,
       },
     });
     return users;
@@ -104,6 +113,9 @@ export class UserService {
       },
       include: {
         locations: true,
+        posts: true,
+        comments: true,
+        todos: true,
       },
     });
     return users;

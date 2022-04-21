@@ -2,7 +2,12 @@ import { Controller, Post, Get, Body, Query } from '@nestjs/common';
 import { TagService } from './tag.service';
 import { CreateTagDto } from './dto/createTag.dto';
 
-import { ApiBearerAuth, ApiHeader, ApiResponse } from '@nestjs/swagger';
+import {
+  ApiBearerAuth,
+  ApiHeader,
+  ApiQuery,
+  ApiResponse,
+} from '@nestjs/swagger';
 import { CreateTagResponse } from './response/createTag.response';
 import { GetTagsResponse } from './response/getTags.response';
 
@@ -29,6 +34,24 @@ export class TagController {
   }
 
   @Get()
+  @ApiQuery({
+    name: 'users_id',
+    description: 'users_id',
+    required: false,
+    type: String,
+  })
+  @ApiQuery({
+    name: 'page',
+    description: 'page',
+    required: false,
+    type: String,
+  })
+  @ApiQuery({
+    name: 'per_page',
+    description: 'per_page',
+    required: false,
+    type: String,
+  })
   @ApiResponse({
     status: 200,
     description: 'Successful response',

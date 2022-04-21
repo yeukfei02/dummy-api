@@ -7,6 +7,7 @@ import { LocationModule } from './location/location.module';
 import { PostModule } from './post/post.module';
 import { TagModule } from './tag/tag.module';
 import { CommentModule } from './comment/comment.module';
+import { TodoModule } from './todo/todo.module';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { CommentModule } from './comment/comment.module';
     PostModule,
     TagModule,
     CommentModule,
+    TodoModule,
   ],
   controllers: [AppController],
   providers: [AppService],

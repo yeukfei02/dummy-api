@@ -17,9 +17,10 @@ export class LoginService {
       },
     });
     if (users) {
+      const hashedPassword = users.password;
       const isValidPassword = bcrypt.compareSync(
         loginDto.password,
-        users.password,
+        hashedPassword,
       );
       console.log('isValidPassword = ', isValidPassword);
       if (isValidPassword) {

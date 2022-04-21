@@ -12,7 +12,12 @@ import { UserService } from './user.service';
 import { CreateUserDto } from './dto/createUser.dto';
 import { UpdateUserDto } from './dto/updateUser.dto';
 
-import { ApiBearerAuth, ApiHeader, ApiResponse } from '@nestjs/swagger';
+import {
+  ApiBearerAuth,
+  ApiHeader,
+  ApiQuery,
+  ApiResponse,
+} from '@nestjs/swagger';
 import { CreateUserResponse } from './response/createUser.response';
 import { GetUsersResponse } from './response/getUsers.response';
 import { GetUserByIdResponse } from './response/getUserById.response';
@@ -42,6 +47,18 @@ export class UserController {
   }
 
   @Get()
+  @ApiQuery({
+    name: 'page',
+    description: 'page',
+    required: false,
+    type: String,
+  })
+  @ApiQuery({
+    name: 'per_page',
+    description: 'per_page',
+    required: false,
+    type: String,
+  })
   @ApiResponse({
     status: 200,
     description: 'Successful response',

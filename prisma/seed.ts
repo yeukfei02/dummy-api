@@ -11,6 +11,7 @@ const prisma = new PrismaClient();
   await createPosts();
   await createTags();
   await createComments();
+  await createTodos();
 })();
 
 async function createUsers() {
@@ -140,6 +141,28 @@ async function createComments() {
   if (commentsDataList) {
     await prisma.comment.createMany({
       data: commentsDataList,
+    });
+  }
+}
+
+async function createTodos() {
+  const todosDataList = [];
+
+  const users = await prisma.users.findMany({
+    take: 100,
+  });
+
+  for (let index = 0; index < 100; index++) {
+    const todoData = {
+      todo: faker.lorem.words(),
+      users_id: users[index].id,
+    };
+    todosDataList.push(todoData);
+  }
+
+  if (todosDataList) {
+    await prisma.todo.createMany({
+      data: todosDataList,
     });
   }
 }

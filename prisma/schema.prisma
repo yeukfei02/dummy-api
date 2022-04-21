@@ -23,7 +23,8 @@ model users {
   password      String?
   comments      comment[]
   locations     location[]
-  post          post[]
+  posts         post[]
+  todos         todo[]
 
   @@index([created_at], map: "index_users_on_created_at")
   @@index([date_of_birth], map: "index_users_on_date_of_birth")
@@ -114,6 +115,20 @@ model comment {
   @@index([publish_date], map: "index_comment_on_publish_date")
   @@index([updated_at], map: "index_comment_on_updated_at")
   @@index([users_id], map: "index_comment_on_users_id")
+}
+
+model todo {
+  id         String   @id @default(uuid()) @db.Uuid
+  todo       String?
+  created_at DateTime @default(now())
+  updated_at DateTime @default(now())
+  users      users?   @relation(fields: [users_id], references: [id])
+  users_id   String?  @db.Uuid
+
+  @@index([todo], map: "index_todo_on_todo")
+  @@index([users_id], map: "index_todo_on_users_id")
+  @@index([created_at], map: "index_todo_on_created_at")
+  @@index([updated_at], map: "index_todo_on_updated_at")
 }
 
 enum Title {
