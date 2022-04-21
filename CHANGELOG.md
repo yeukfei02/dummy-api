@@ -2,6 +2,32 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.4](https://github.com/yeukfei02/dummy-api/compare/v0.1.3...v0.1.4) (2022-04-21)
+
+
+### Features
+
+* 🎸 add api header ([fe1b4d0](https://github.com/yeukfei02/dummy-api/commit/fe1b4d0c7d7dc7d26e9f1bb75231d53d13c05410))
+* 🎸 add AuthMiddleware and add password index ([92494d2](https://github.com/yeukfei02/dummy-api/commit/92494d2f176aa1c85d4c915f6825c218933349a5))
+* 🎸 add bearer token in swagger doc ([5848d36](https://github.com/yeukfei02/dummy-api/commit/5848d36899146a31b69e9dff796cfa2ffb14d8de))
+* 🎸 add createTodos func ([33f94da](https://github.com/yeukfei02/dummy-api/commit/33f94da07102798c2c40190dffc99f9788068680))
+* 🎸 add login api ([9c6616f](https://github.com/yeukfei02/dummy-api/commit/9c6616fa28053fd5db71db70dc28f44bbee66183))
+* 🎸 add post_id in getTags api ([c7d8a8d](https://github.com/yeukfei02/dummy-api/commit/c7d8a8d87b380a9678edec63169f7910782e8a78))
+* 🎸 add todo api ([0ee48e3](https://github.com/yeukfei02/dummy-api/commit/0ee48e3da7935f620ec2cdda832c888ec51483c4))
+* 🎸 add todo table ([3727f98](https://github.com/yeukfei02/dummy-api/commit/3727f985b469e07c6ef24a8414182b046514175d))
+* 🎸 add users_id in query param ([a13b958](https://github.com/yeukfei02/dummy-api/commit/a13b9588cb6292f4c161ac08f52be38a073652e6))
+
+
+### Bug Fixes
+
+* 🐛 add hashedPassword var ([53dd359](https://github.com/yeukfei02/dummy-api/commit/53dd359f1b267cbb52d30c12c682066b1d3ae979))
+* 🐛 fix code ([204a334](https://github.com/yeukfei02/dummy-api/commit/204a334746b5aa2f19a71fb55af33a1e42c0c9a7))
+* 🐛 fix GetUserByIdResponse ([461e882](https://github.com/yeukfei02/dummy-api/commit/461e8821a1f6ea4861a69a258dd2d84539122ed1))
+* 🐛 fix query param to optional in swagger ([a1d05c8](https://github.com/yeukfei02/dummy-api/commit/a1d05c81ad69ec6ef3ebaf3197f4e5788ca634eb))
+* 🐛 format schema.prisma ([d5ff3d5](https://github.com/yeukfei02/dummy-api/commit/d5ff3d570f6c995de0c2530869e8763b1554b8d4))
+* 🐛 format schema.prisma ([ca6bbeb](https://github.com/yeukfei02/dummy-api/commit/ca6bbebf732a1312cdedbbe13da76c938e14610b))
+* 🐛 update husky ([ad976f7](https://github.com/yeukfei02/dummy-api/commit/ad976f71646d012611fe0f07187eeae8d1bbc615))
+
 ### [0.1.3](https://github.com/yeukfei02/dummy-api/compare/v0.1.2...v0.1.3) (2022-04-20)
 
 
