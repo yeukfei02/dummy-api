@@ -1,9 +1,8 @@
-import { Title, Gender } from '@prisma/client';
 import { ApiProperty } from '@nestjs/swagger';
 
-export class CreateUserDto {
+export class User {
   @ApiProperty()
-  title: Title;
+  id: string;
 
   @ApiProperty()
   first_name: string;
@@ -12,23 +11,25 @@ export class CreateUserDto {
   last_name: string;
 
   @ApiProperty()
-  gender: Gender;
+  gender: string;
 
   @ApiProperty()
   email: string;
 
   @ApiProperty()
-  password: string;
+  created_at: string;
 
   @ApiProperty()
-  date_of_birth: string;
+  updated_at: string;
+}
+
+export class LoginResponse {
+  @ApiProperty()
+  message: string;
 
   @ApiProperty()
-  register_date: string;
+  user: User;
 
   @ApiProperty()
-  phone: string;
-
-  @ApiProperty()
-  picture: string;
+  token: string;
 }
