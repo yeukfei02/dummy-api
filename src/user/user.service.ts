@@ -6,6 +6,7 @@ import { users } from '@prisma/client';
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
 import timezone from 'dayjs/plugin/timezone';
+import bcrypt from 'bcryptjs';
 
 dayjs.extend(utc);
 dayjs.extend(timezone);
@@ -15,6 +16,9 @@ export class UserService {
   constructor(private readonly prisma: PrismaService) {}
 
   async createUser(createUserDto: CreateUserDto): Promise<users> {
+    const salt = bcrypt.genSaltSync(10);
+    const hashedPassword = bcrypt.hashSync(createUserDto.password, salt);
+
     const users = await this.prisma.users.create({
       data: {
         title: createUserDto.title,
@@ -22,6 +26,7 @@ export class UserService {
         last_name: createUserDto.last_name,
         gender: createUserDto.gender,
         email: createUserDto.email,
+        password: hashedPassword,
         date_of_birth: dayjs(createUserDto.date_of_birth)
           .tz('Asia/Hong_Kong')
           .toISOString(),

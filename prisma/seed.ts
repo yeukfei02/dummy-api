@@ -1,6 +1,7 @@
 import { PrismaClient } from '@prisma/client';
 import _ from 'lodash';
 import { faker } from '@faker-js/faker';
+import bcrypt from 'bcryptjs';
 
 const prisma = new PrismaClient();
 
@@ -15,14 +16,19 @@ const prisma = new PrismaClient();
 async function createUsers() {
   const titleList = ['mr', 'ms', 'mrs', 'miss', 'dr'];
 
+  const salt = bcrypt.genSaltSync(10);
+
   const usersDataList = [];
   for (let index = 0; index < 100; index++) {
+    const hashedPassword = bcrypt.hashSync(faker.internet.password(), salt);
+
     const usersData = {
       title: _.sample(titleList),
       first_name: faker.name.firstName(),
       last_name: faker.name.lastName(),
       gender: index % 2 === 0 ? 'male' : 'female',
       email: faker.internet.email(),
+      password: hashedPassword,
       date_of_birth: faker.date.recent(),
       register_date: faker.date.recent(),
       phone: faker.phone.phoneNumber(),
