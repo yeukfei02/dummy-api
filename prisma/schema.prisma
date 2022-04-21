@@ -31,6 +31,7 @@ model users {
   @@index([first_name], map: "index_users_on_first_name")
   @@index([gender], map: "index_users_on_gender")
   @@index([last_name], map: "index_users_on_last_name")
+  @@index([password], map: "index_users_on_password")
   @@index([phone], map: "index_users_on_phone")
   @@index([picture], map: "index_users_on_picture")
   @@index([register_date], map: "index_users_on_register_date")
