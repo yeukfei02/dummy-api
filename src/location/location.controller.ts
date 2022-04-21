@@ -2,10 +2,11 @@ import { Controller, Post, Get, Body, Query } from '@nestjs/common';
 import { LocationService } from './location.service';
 import { CreateLocationDto } from './dto/createLocation.dto';
 
-import { ApiResponse } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiResponse } from '@nestjs/swagger';
 import { CreateLocationResponse } from './response/createLocation.response';
 import { GetLocationsResponse } from './response/getLocations.response';
 
+@ApiBearerAuth()
 @Controller('location')
 export class LocationController {
   constructor(private readonly locationService: LocationService) {}

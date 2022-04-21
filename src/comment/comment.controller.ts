@@ -12,13 +12,14 @@ import { CommentService } from './comment.service';
 import { CreateCommentDto } from './dto/createComment.dto';
 import { UpdateCommentDto } from './dto/updateComment.dto';
 
-import { ApiResponse } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiResponse } from '@nestjs/swagger';
 import { CreateCommentResponse } from './response/createComment.response';
 import { GetCommentsResponse } from './response/getComments.response';
 import { GetCommentByIdResponse } from './response/getCommentById.response';
 import { UpdateCommentByIdResponse } from './response/updateCommentById.response';
 import { DeleteCommentByIdResponse } from './response/deleteCommentById.response';
 
+@ApiBearerAuth()
 @Controller('comment')
 export class CommentController {
   constructor(private readonly commentService: CommentService) {}

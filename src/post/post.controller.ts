@@ -12,13 +12,14 @@ import { PostService } from './post.service';
 import { CreatePostDto } from './dto/createPost.dto';
 import { UpdatePostDto } from './dto/updatePost.dto';
 
-import { ApiResponse } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiResponse } from '@nestjs/swagger';
 import { CreatePostResponse } from './response/createPost.response';
 import { GetPostsResponse } from './response/getPosts.response';
 import { GetPostByIdResponse } from './response/getPostById.response';
 import { UpdatePostByIdResponse } from './response/updatePostById.response';
 import { DeletePostByIdResponse } from './response/deletePostById.response';
 
+@ApiBearerAuth()
 @Controller('post')
 export class PostController {
   constructor(private readonly postService: PostService) {}
