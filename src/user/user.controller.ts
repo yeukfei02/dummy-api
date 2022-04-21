@@ -48,12 +48,6 @@ export class UserController {
 
   @Get()
   @ApiQuery({
-    name: 'users_id',
-    description: 'users_id',
-    required: false,
-    type: String,
-  })
-  @ApiQuery({
     name: 'page',
     description: 'page',
     required: false,
