@@ -122,13 +122,13 @@ model todo {
   todo       String?
   created_at DateTime @default(now())
   updated_at DateTime @default(now())
-  users      users?   @relation(fields: [users_id], references: [id])
   users_id   String?  @db.Uuid
+  users      users?   @relation(fields: [users_id], references: [id])
 
-  @@index([todo], map: "index_todo_on_todo")
-  @@index([users_id], map: "index_todo_on_users_id")
   @@index([created_at], map: "index_todo_on_created_at")
+  @@index([todo], map: "index_todo_on_todo")
   @@index([updated_at], map: "index_todo_on_updated_at")
+  @@index([users_id], map: "index_todo_on_users_id")
 }
 
 enum Title {
