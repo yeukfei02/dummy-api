@@ -1,6 +1,8 @@
 # dummy-api
 
-this is an api replicate [dummy-api](https://dummyapi.io/docs)
+Api similar to [dummy-api](https://dummyapi.io/docs)
+
+Api for playing around with dummy data. Feel free to use it in your demo projects, tutorials, or testing tasks.
 
 documentation: <https://documenter.getpostman.com/view/3827865/Uyr8kHHD>
 
