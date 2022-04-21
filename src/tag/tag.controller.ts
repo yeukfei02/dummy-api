@@ -2,11 +2,15 @@ import { Controller, Post, Get, Body, Query } from '@nestjs/common';
 import { TagService } from './tag.service';
 import { CreateTagDto } from './dto/createTag.dto';
 
-import { ApiBearerAuth, ApiResponse } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiHeader, ApiResponse } from '@nestjs/swagger';
 import { CreateTagResponse } from './response/createTag.response';
 import { GetTagsResponse } from './response/getTags.response';
 
 @ApiBearerAuth()
+@ApiHeader({
+  name: 'Authorization',
+  description: 'Jwt Token',
+})
 @Controller('tag')
 export class TagController {
   constructor(private readonly tagService: TagService) {}

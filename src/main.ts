@@ -15,7 +15,7 @@ async function bootstrap() {
   const config = new DocumentBuilder()
     .setTitle('dummy-api')
     .setDescription('dummy-api documentation')
-    .setVersion('1.0')
+    .setVersion(process.env.npm_package_version || '1.0')
     .addTag('dummy-api')
     .addBearerAuth()
     .build();

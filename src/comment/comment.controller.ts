@@ -12,7 +12,7 @@ import { CommentService } from './comment.service';
 import { CreateCommentDto } from './dto/createComment.dto';
 import { UpdateCommentDto } from './dto/updateComment.dto';
 
-import { ApiBearerAuth, ApiResponse } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiHeader, ApiResponse } from '@nestjs/swagger';
 import { CreateCommentResponse } from './response/createComment.response';
 import { GetCommentsResponse } from './response/getComments.response';
 import { GetCommentByIdResponse } from './response/getCommentById.response';
@@ -20,6 +20,10 @@ import { UpdateCommentByIdResponse } from './response/updateCommentById.response
 import { DeleteCommentByIdResponse } from './response/deleteCommentById.response';
 
 @ApiBearerAuth()
+@ApiHeader({
+  name: 'Authorization',
+  description: 'Jwt Token',
+})
 @Controller('comment')
 export class CommentController {
   constructor(private readonly commentService: CommentService) {}
