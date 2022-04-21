@@ -20,14 +20,28 @@ export class TagService {
     return tag;
   }
 
-  async getTags(page: number, perPage: number): Promise<any> {
-    const tags = await this.prisma.tag.findMany({
+  async getTags(postId: string, page: number, perPage: number): Promise<any> {
+    let tags = await this.prisma.tag.findMany({
       include: {
         post: true,
       },
       skip: perPage * (page - 1),
       take: perPage,
     });
+
+    if (postId) {
+      tags = await this.prisma.tag.findMany({
+        where: {
+          post_id: postId,
+        },
+        include: {
+          post: true,
+        },
+        skip: perPage * (page - 1),
+        take: perPage,
+      });
+    }
+
     return tags;
   }
 }
