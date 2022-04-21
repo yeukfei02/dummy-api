@@ -14,13 +14,13 @@ model users {
   last_name     String?    @db.VarChar(50)
   gender        Gender
   email         String?    @unique
-  password      String?
   date_of_birth DateTime?
   register_date DateTime?
   phone         String?
   picture       String?
   created_at    DateTime   @default(now())
   updated_at    DateTime   @default(now())
+  password      String?
   comments      comment[]
   locations     location[]
   post          post[]
@@ -31,6 +31,7 @@ model users {
   @@index([first_name], map: "index_users_on_first_name")
   @@index([gender], map: "index_users_on_gender")
   @@index([last_name], map: "index_users_on_last_name")
+  @@index([password], map: "index_users_on_password")
   @@index([phone], map: "index_users_on_phone")
   @@index([picture], map: "index_users_on_picture")
   @@index([register_date], map: "index_users_on_register_date")

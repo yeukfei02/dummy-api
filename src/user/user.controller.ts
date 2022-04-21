@@ -12,13 +12,14 @@ import { UserService } from './user.service';
 import { CreateUserDto } from './dto/createUser.dto';
 import { UpdateUserDto } from './dto/updateUser.dto';
 
-import { ApiResponse } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiResponse } from '@nestjs/swagger';
 import { CreateUserResponse } from './response/createUser.response';
 import { GetUsersResponse } from './response/getUsers.response';
 import { GetUserByIdResponse } from './response/getUserById.response';
 import { UpdateUserByIdResponse } from './response/updateUserById.response';
 import { DeleteUserByIdResponse } from './response/deleteUserById.response';
 
+@ApiBearerAuth()
 @Controller('users')
 export class UserController {
   constructor(private readonly userService: UserService) {}
