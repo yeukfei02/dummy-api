@@ -14,13 +14,13 @@ model users {
   last_name     String?    @db.VarChar(50)
   gender        Gender
   email         String?    @unique
-  password      String?
   date_of_birth DateTime?
   register_date DateTime?
   phone         String?
   picture       String?
   created_at    DateTime   @default(now())
   updated_at    DateTime   @default(now())
+  password      String?
   comments      comment[]
   locations     location[]
   post          post[]
