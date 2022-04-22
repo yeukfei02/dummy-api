@@ -139,9 +139,9 @@ model quote {
   created_at DateTime @default(now())
   updated_at DateTime @default(now())
 
-  @@index([created_at], map: "index_quote_on_created_at")
-  @@index([content], map: "index_quote_on_content")
   @@index([author], map: "index_quote_on_author")
+  @@index([content], map: "index_quote_on_content")
+  @@index([created_at], map: "index_quote_on_created_at")
   @@index([tags], map: "index_quote_on_tags")
   @@index([updated_at], map: "index_quote_on_updated_at")
 }
