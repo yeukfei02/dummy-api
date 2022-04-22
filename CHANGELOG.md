@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.5](https://github.com/yeukfei02/dummy-api/compare/v0.1.4...v0.1.5) (2022-04-22)
+
+
+### Features
+
+* 🎸 add quote api ([6cc025d](https://github.com/yeukfei02/dummy-api/commit/6cc025db0eed135e4b57b3b9c283e07edbe9a23b))
+* 🎸 add quote table and seed quote data ([e3044a1](https://github.com/yeukfei02/dummy-api/commit/e3044a1ad94f63700ef415629095c06bd2a4539a))
+
+
+### Bug Fixes
+
+* 🐛 format schema.prisma ([fab9fb6](https://github.com/yeukfei02/dummy-api/commit/fab9fb6dff68b45d8047c3532dacc5aa11a52576))
+
 ### [0.1.4](https://github.com/yeukfei02/dummy-api/compare/v0.1.3...v0.1.4) (2022-04-21)
 
 
