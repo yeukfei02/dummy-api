@@ -131,6 +131,21 @@ model todo {
   @@index([users_id], map: "index_todo_on_users_id")
 }
 
+model quote {
+  id         String   @id @default(uuid()) @db.Uuid
+  content    String?
+  author     String?
+  tags       String[]
+  created_at DateTime @default(now())
+  updated_at DateTime @default(now())
+
+  @@index([created_at], map: "index_quote_on_created_at")
+  @@index([content], map: "index_quote_on_content")
+  @@index([author], map: "index_quote_on_author")
+  @@index([tags], map: "index_quote_on_tags")
+  @@index([updated_at], map: "index_quote_on_updated_at")
+}
+
 enum Title {
   mr
   ms

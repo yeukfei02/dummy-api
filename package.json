@@ -11,6 +11,7 @@
     "@nestjs/platform-express": "^8.0.0",
     "@nestjs/swagger": "^5.2.1",
     "@prisma/client": "^3.12.0",
+    "axios": "^0.26.1",
     "bcryptjs": "^2.4.3",
     "compression": "^1.7.4",
     "dayjs": "^1.11.1",
