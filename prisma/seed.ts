@@ -2,6 +2,7 @@ import { PrismaClient } from '@prisma/client';
 import _ from 'lodash';
 import { faker } from '@faker-js/faker';
 import bcrypt from 'bcryptjs';
+import axios from 'axios';
 
 const prisma = new PrismaClient();
 
@@ -12,6 +13,7 @@ const prisma = new PrismaClient();
   await createTags();
   await createComments();
   await createTodos();
+  await createQuotes();
 })();
 
 async function createUsers() {
@@ -164,5 +166,30 @@ async function createTodos() {
     await prisma.todo.createMany({
       data: todosDataList,
     });
+  }
+}
+
+async function createQuotes() {
+  const rootUrl = `https://api.quotable.io`;
+  const response = await axios.get(`${rootUrl}/quotes`, {
+    params: { limit: 100 },
+  });
+  if (response) {
+    const responseData = response.data;
+    console.log('responseData = ', responseData);
+
+    if (responseData) {
+      const resultsList = responseData.results;
+      for (let index = 0; index < resultsList.length; index++) {
+        const item = resultsList[index];
+        await prisma.quote.create({
+          data: {
+            content: item.content,
+            author: item.author,
+            tags: item.tags,
+          },
+        });
+      }
+    }
   }
 }

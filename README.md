@@ -4,6 +4,10 @@ Api similar to [dummy-api](https://dummyapi.io/docs)
 
 Api for playing around with dummy data. Feel free to use it in your demo projects, tutorials, or testing tasks.
 
+- All authorization headers are optional
+
+- listing api default page = 1, default per page = 20
+
 documentation: <https://documenter.getpostman.com/view/3827865/Uyr8kHHD>
 
 swagger url: <https://dummy-api-nestjs.herokuapp.com/api>
