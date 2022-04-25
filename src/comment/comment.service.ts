@@ -44,6 +44,9 @@ export class CommentService {
       },
       skip: perPageInt * (pageInt - 1),
       take: perPageInt,
+      orderBy: {
+        created_at: 'desc',
+      },
     });
 
     if (usersId) {
@@ -57,6 +60,9 @@ export class CommentService {
         },
         skip: perPageInt * (pageInt - 1),
         take: perPageInt,
+        orderBy: {
+          created_at: 'desc',
+        },
       });
     }
 

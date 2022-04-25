@@ -3,6 +3,7 @@ import {
   Post,
   Get,
   Put,
+  Patch,
   Delete,
   Body,
   Param,
@@ -111,6 +112,22 @@ export class PostController {
     type: UpdatePostByIdResponse,
   })
   async updatePostById(
+    @Param('id') id: string,
+    @Body() updatePostDto: UpdatePostDto,
+  ): Promise<any> {
+    const post = await this.postService.updatePostById(id, updatePostDto);
+
+    const response = { message: 'updatePostById', post: post };
+    return response;
+  }
+
+  @Patch('/:id')
+  @ApiResponse({
+    status: 200,
+    description: 'Successful response',
+    type: UpdatePostByIdResponse,
+  })
+  async patchPostById(
     @Param('id') id: string,
     @Body() updatePostDto: UpdatePostDto,
   ): Promise<any> {

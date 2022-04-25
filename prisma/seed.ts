@@ -52,6 +52,9 @@ async function createLocations() {
 
   const users = await prisma.users.findMany({
     take: 50,
+    orderBy: {
+      created_at: 'desc',
+    },
   });
 
   for (let index = 0; index < 50; index++) {
@@ -78,6 +81,9 @@ async function createPosts() {
 
   const users = await prisma.users.findMany({
     take: 100,
+    orderBy: {
+      created_at: 'desc',
+    },
   });
 
   for (let index = 0; index < 100; index++) {
@@ -103,6 +109,9 @@ async function createTags() {
 
   const posts = await prisma.post.findMany({
     take: 20,
+    orderBy: {
+      created_at: 'desc',
+    },
   });
 
   for (let index = 0; index < 20; index++) {
@@ -125,9 +134,15 @@ async function createComments() {
 
   const users = await prisma.users.findMany({
     take: 100,
+    orderBy: {
+      created_at: 'desc',
+    },
   });
   const posts = await prisma.post.findMany({
     take: 100,
+    orderBy: {
+      created_at: 'desc',
+    },
   });
 
   for (let index = 0; index < 100; index++) {
@@ -152,6 +167,9 @@ async function createTodos() {
 
   const users = await prisma.users.findMany({
     take: 100,
+    orderBy: {
+      created_at: 'desc',
+    },
   });
 
   for (let index = 0; index < 100; index++) {

@@ -3,6 +3,7 @@ import {
   Post,
   Get,
   Put,
+  Patch,
   Delete,
   Body,
   Param,
@@ -111,6 +112,22 @@ export class TodoController {
     type: UpdateTodoByIdResponse,
   })
   async updateTodoById(
+    @Param('id') id: string,
+    @Body() updateTodoDto: UpdateTodoDto,
+  ): Promise<any> {
+    const todo = await this.todoService.updateTodoById(id, updateTodoDto);
+
+    const response = { message: 'updateTodoById', todo: todo };
+    return response;
+  }
+
+  @Patch('/:id')
+  @ApiResponse({
+    status: 200,
+    description: 'Successful response',
+    type: UpdateTodoByIdResponse,
+  })
+  async patchTodoById(
     @Param('id') id: string,
     @Body() updateTodoDto: UpdateTodoDto,
   ): Promise<any> {

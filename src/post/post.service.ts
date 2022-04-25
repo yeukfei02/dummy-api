@@ -43,6 +43,9 @@ export class PostService {
       },
       skip: perPage * (page - 1),
       take: perPage,
+      orderBy: {
+        created_at: 'desc',
+      },
     });
 
     if (usersId) {
@@ -57,6 +60,9 @@ export class PostService {
         },
         skip: perPage * (page - 1),
         take: perPage,
+        orderBy: {
+          created_at: 'desc',
+        },
       });
     }
 

@@ -31,6 +31,9 @@ export class TodoService {
     let todos = await this.prisma.todo.findMany({
       skip: perPage * (page - 1),
       take: perPage,
+      orderBy: {
+        created_at: 'desc',
+      },
     });
 
     if (usersId) {
@@ -40,6 +43,9 @@ export class TodoService {
         },
         skip: perPage * (page - 1),
         take: perPage,
+        orderBy: {
+          created_at: 'desc',
+        },
       });
     }
 

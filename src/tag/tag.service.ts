@@ -27,6 +27,9 @@ export class TagService {
       },
       skip: perPage * (page - 1),
       take: perPage,
+      orderBy: {
+        created_at: 'desc',
+      },
     });
 
     if (postId) {
@@ -39,6 +42,9 @@ export class TagService {
         },
         skip: perPage * (page - 1),
         take: perPage,
+        orderBy: {
+          created_at: 'desc',
+        },
       });
     }
 

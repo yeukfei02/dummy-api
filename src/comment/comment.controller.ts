@@ -4,6 +4,7 @@ import {
   Post,
   Body,
   Put,
+  Patch,
   Param,
   Delete,
   Query,
@@ -117,6 +118,25 @@ export class CommentController {
     type: UpdateCommentByIdResponse,
   })
   async updateCommentById(
+    @Param('id') id: string,
+    @Body() updateCommentDto: UpdateCommentDto,
+  ): Promise<any> {
+    const comment = await this.commentService.updateCommentById(
+      id,
+      updateCommentDto,
+    );
+
+    const response = { message: 'updateCommentById', comment: comment };
+    return response;
+  }
+
+  @Patch('/:id')
+  @ApiResponse({
+    status: 200,
+    description: 'Successful response',
+    type: UpdateCommentByIdResponse,
+  })
+  async patchCommentById(
     @Param('id') id: string,
     @Body() updateCommentDto: UpdateCommentDto,
   ): Promise<any> {
