@@ -7,9 +7,9 @@ import {
   ApiQuery,
   ApiResponse,
 } from '@nestjs/swagger';
-import { GetQuotesResponse } from './response/getQuotes.response';
-import { GetQuoteByIdResponse } from './response/getQuoteById.response';
-import { GetRandomQuoteResponse } from './response/getRandomQuote.response';
+import { GetQuotesResponse } from './response/get-quotes.response';
+import { GetQuoteByIdResponse } from './response/get-quote-by-id.response';
+import { GetRandomQuoteResponse } from './response/get-random-quote.response';
 
 @ApiBearerAuth()
 @ApiHeader({

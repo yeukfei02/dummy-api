@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { CreateCommentDto } from './dto/createComment.dto';
-import { UpdateCommentDto } from './dto/updateComment.dto';
+import { CreateCommentDto } from './dto/create-comment.dto';
+import { UpdateCommentDto } from './dto/update-comment.dto';
 import { PrismaService } from '../prisma.service';
 import { comment } from '@prisma/client';
 import dayjs from 'dayjs';

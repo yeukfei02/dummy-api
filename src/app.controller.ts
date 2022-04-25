@@ -2,7 +2,7 @@ import { Controller, Get } from '@nestjs/common';
 import { AppService } from './app.service';
 
 import { ApiResponse } from '@nestjs/swagger';
-import { GetMainResponse } from './response/getMain.response';
+import { GetMainResponse } from './response/get-main.response';
 
 @Controller()
 export class AppController {

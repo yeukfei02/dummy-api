@@ -1,6 +1,6 @@
 import { Controller, Post, Get, Body, Query } from '@nestjs/common';
 import { TagService } from './tag.service';
-import { CreateTagDto } from './dto/createTag.dto';
+import { CreateTagDto } from './dto/create-tag.dto';
 
 import {
   ApiBearerAuth,
@@ -8,8 +8,8 @@ import {
   ApiQuery,
   ApiResponse,
 } from '@nestjs/swagger';
-import { CreateTagResponse } from './response/createTag.response';
-import { GetTagsResponse } from './response/getTags.response';
+import { CreateTagResponse } from './response/create-tag.response';
+import { GetTagsResponse } from './response/get-tags.response';
 
 @ApiBearerAuth()
 @ApiHeader({

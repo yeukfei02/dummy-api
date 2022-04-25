@@ -9,8 +9,8 @@ import {
   Query,
 } from '@nestjs/common';
 import { CommentService } from './comment.service';
-import { CreateCommentDto } from './dto/createComment.dto';
-import { UpdateCommentDto } from './dto/updateComment.dto';
+import { CreateCommentDto } from './dto/create-comment.dto';
+import { UpdateCommentDto } from './dto/update-comment.dto';
 
 import {
   ApiBearerAuth,
@@ -18,11 +18,11 @@ import {
   ApiQuery,
   ApiResponse,
 } from '@nestjs/swagger';
-import { CreateCommentResponse } from './response/createComment.response';
-import { GetCommentsResponse } from './response/getComments.response';
-import { GetCommentByIdResponse } from './response/getCommentById.response';
-import { UpdateCommentByIdResponse } from './response/updateCommentById.response';
-import { DeleteCommentByIdResponse } from './response/deleteCommentById.response';
+import { CreateCommentResponse } from './response/create-comment.response';
+import { GetCommentsResponse } from './response/get-comments.response';
+import { GetCommentByIdResponse } from './response/get-comment-by-id.response';
+import { UpdateCommentByIdResponse } from './response/update-comment-by-id.response';
+import { DeleteCommentByIdResponse } from './response/delete-comment-by-id.response';
 
 @ApiBearerAuth()
 @ApiHeader({
