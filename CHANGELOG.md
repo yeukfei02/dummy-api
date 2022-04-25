@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.7](https://github.com/yeukfei02/dummy-api/compare/v0.1.6...v0.1.7) (2022-04-25)
+
+
+### Features
+
+* 🎸 add patch api and add order by created_at ([8e3dabb](https://github.com/yeukfei02/dummy-api/commit/8e3dabb4981f0a7da6dfa7ccf95677c1996d5dd1))
+
 ### [0.1.6](https://github.com/yeukfei02/dummy-api/compare/v0.1.5...v0.1.6) (2022-04-25)
 
 
