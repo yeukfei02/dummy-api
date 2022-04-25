@@ -57,6 +57,9 @@ export class UserService {
       },
       skip: perPage * (page - 1),
       take: perPage,
+      orderBy: {
+        created_at: 'desc',
+      },
     });
     return users;
   }

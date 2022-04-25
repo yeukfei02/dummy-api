@@ -11,6 +11,9 @@ export class QuoteService {
     const quotes = await this.prisma.quote.findMany({
       skip: perPageInt * (pageInt - 1),
       take: perPageInt,
+      orderBy: {
+        created_at: 'desc',
+      },
     });
     return quotes;
   }
@@ -18,6 +21,9 @@ export class QuoteService {
   async getRandomQuote(): Promise<quote> {
     const quotes = await this.prisma.quote.findMany({
       take: 100,
+      orderBy: {
+        created_at: 'desc',
+      },
     });
 
     const quote = _.sample(quotes);

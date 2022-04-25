@@ -3,6 +3,7 @@ import {
   Post,
   Get,
   Put,
+  Patch,
   Delete,
   Body,
   Param,
@@ -103,6 +104,22 @@ export class UserController {
     type: UpdateUserByIdResponse,
   })
   async updateUserById(
+    @Param('id') id: string,
+    @Body() updateUserDto: UpdateUserDto,
+  ): Promise<any> {
+    const user = await this.userService.updateUserById(id, updateUserDto);
+
+    const response = { message: 'updateUserById', user: user };
+    return response;
+  }
+
+  @Patch('/:id')
+  @ApiResponse({
+    status: 200,
+    description: 'Successful response',
+    type: UpdateUserByIdResponse,
+  })
+  async patchUserById(
     @Param('id') id: string,
     @Body() updateUserDto: UpdateUserDto,
   ): Promise<any> {
