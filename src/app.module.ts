@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { SignupModule } from './signup/signup.module';
 import { LoginModule } from './login/login.module';
 import { UserModule } from './user/user.module';
 import { LocationModule } from './location/location.module';
@@ -12,6 +13,7 @@ import { QuoteModule } from './quote/quote.module';
 
 @Module({
   imports: [
+    SignupModule,
     LoginModule,
     UserModule,
     LocationModule,
