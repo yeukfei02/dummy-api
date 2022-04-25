@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.6](https://github.com/yeukfei02/dummy-api/compare/v0.1.5...v0.1.6) (2022-04-25)
+
+
+### Features
+
+* 🎸 add signup api ([fd02eb4](https://github.com/yeukfei02/dummy-api/commit/fd02eb49191ab2ebb4caf7af65d9814e8f9f4e1d))
+
+
+### Bug Fixes
+
+* 🐛 update filename format ([cc906f0](https://github.com/yeukfei02/dummy-api/commit/cc906f0262c0de5ad35d5190d0652dbfab17e8f9))
+
 ### [0.1.5](https://github.com/yeukfei02/dummy-api/compare/v0.1.4...v0.1.5) (2022-04-22)
 
 
