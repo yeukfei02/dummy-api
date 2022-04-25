@@ -1,6 +1,6 @@
 import { Controller, Post, Get, Body, Query } from '@nestjs/common';
 import { LocationService } from './location.service';
-import { CreateLocationDto } from './dto/createLocation.dto';
+import { CreateLocationDto } from './dto/create-location.dto';
 
 import {
   ApiBearerAuth,
@@ -8,8 +8,8 @@ import {
   ApiQuery,
   ApiResponse,
 } from '@nestjs/swagger';
-import { CreateLocationResponse } from './response/createLocation.response';
-import { GetLocationsResponse } from './response/getLocations.response';
+import { CreateLocationResponse } from './response/create-location.response';
+import { GetLocationsResponse } from './response/get-locations.response';
 
 @ApiBearerAuth()
 @ApiHeader({

@@ -17,14 +17,14 @@ export class SignupController {
   })
   async signup(@Body() signupDto: SignupDto): Promise<any> {
     let response = {
-      message: 'Signup',
+      message: 'signup',
       users: {},
     };
 
     const users = await this.signupService.signup(signupDto);
     if (users) {
       response = {
-        message: 'Signup',
+        message: 'signup',
         users: users,
       };
     }

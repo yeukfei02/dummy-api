@@ -9,8 +9,8 @@ import {
   Query,
 } from '@nestjs/common';
 import { PostService } from './post.service';
-import { CreatePostDto } from './dto/createPost.dto';
-import { UpdatePostDto } from './dto/updatePost.dto';
+import { CreatePostDto } from './dto/create-post.dto';
+import { UpdatePostDto } from './dto/update-post.dto';
 
 import {
   ApiBearerAuth,
@@ -18,11 +18,11 @@ import {
   ApiQuery,
   ApiResponse,
 } from '@nestjs/swagger';
-import { CreatePostResponse } from './response/createPost.response';
-import { GetPostsResponse } from './response/getPosts.response';
-import { GetPostByIdResponse } from './response/getPostById.response';
-import { UpdatePostByIdResponse } from './response/updatePostById.response';
-import { DeletePostByIdResponse } from './response/deletePostById.response';
+import { CreatePostResponse } from './response/create-post.response';
+import { GetPostsResponse } from './response/get-posts.response';
+import { GetPostByIdResponse } from './response/get-post-by-id.response';
+import { UpdatePostByIdResponse } from './response/update-post-by-id.response';
+import { DeletePostByIdResponse } from './response/delete-post-by-id.response';
 
 @ApiBearerAuth()
 @ApiHeader({

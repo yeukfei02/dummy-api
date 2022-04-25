@@ -9,8 +9,8 @@ import {
   Query,
 } from '@nestjs/common';
 import { TodoService } from './todo.service';
-import { CreateTodoDto } from './dto/createTodo.dto';
-import { UpdateTodoDto } from './dto/updateTodo.dto';
+import { CreateTodoDto } from './dto/create-todo.dto';
+import { UpdateTodoDto } from './dto/update-todo.dto';
 
 import {
   ApiBearerAuth,
@@ -18,11 +18,11 @@ import {
   ApiQuery,
   ApiResponse,
 } from '@nestjs/swagger';
-import { CreateTodoResponse } from './response/createTodo.response';
-import { GetTodosResponse } from './response/getTodos.response';
-import { GetTodoByIdResponse } from './response/getTodoById.response';
-import { UpdateTodoByIdResponse } from './response/updateTodoById.response';
-import { DeleteTodoByIdResponse } from './response/deleteTodoById.response';
+import { CreateTodoResponse } from './response/create-todo.response';
+import { GetTodosResponse } from './response/get-todos.response';
+import { GetTodoByIdResponse } from './response/get-todo-by-id.response';
+import { UpdateTodoByIdResponse } from './response/update-todo-by-id.response';
+import { DeleteTodoByIdResponse } from './response/delete-todo-by-id.response';
 
 @ApiBearerAuth()
 @ApiHeader({

@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { CreateLocationDto } from './dto/createLocation.dto';
+import { CreateLocationDto } from './dto/create-location.dto';
 import { PrismaService } from '../prisma.service';
 import { location } from '@prisma/client';
 

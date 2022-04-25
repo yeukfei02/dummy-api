@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { CreateTodoDto } from './dto/createTodo.dto';
-import { UpdateTodoDto } from './dto/updateTodo.dto';
+import { CreateTodoDto } from './dto/create-todo.dto';
+import { UpdateTodoDto } from './dto/update-todo.dto';
 import { PrismaService } from '../prisma.service';
 import { todo } from '@prisma/client';
 import dayjs from 'dayjs';
