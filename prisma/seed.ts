@@ -13,6 +13,8 @@ const prisma = new PrismaClient();
   await createTags();
   await createComments();
   await createTodos();
+  await createCarts();
+  await createProducts();
   await createQuotes();
 })();
 
@@ -183,6 +185,64 @@ async function createTodos() {
   if (todosDataList) {
     await prisma.todo.createMany({
       data: todosDataList,
+    });
+  }
+}
+
+async function createCarts() {
+  const cartsDataList = [];
+
+  const users = await prisma.users.findMany({
+    take: 5,
+    orderBy: {
+      created_at: 'desc',
+    },
+  });
+
+  for (let index = 0; index < 5; index++) {
+    const cartData = {
+      users_id: users[index].id,
+    };
+    cartsDataList.push(cartData);
+  }
+
+  if (cartsDataList) {
+    await prisma.cart.createMany({
+      data: cartsDataList,
+    });
+  }
+}
+
+async function createProducts() {
+  const productsDataList = [];
+
+  const carts = await prisma.cart.findMany({
+    take: 5,
+    orderBy: {
+      created_at: 'desc',
+    },
+  });
+
+  for (let index = 0; index < 5; index++) {
+    const productsData = {
+      title: faker.lorem.word(),
+      description: faker.lorem.words(),
+      price: faker.datatype.number(),
+      discount_percentage: faker.datatype.float(),
+      rating: faker.datatype.float(),
+      stock: faker.datatype.float(),
+      brand: faker.lorem.word(),
+      category: faker.lorem.word(),
+      thumbnail: faker.image.image(),
+      images: [faker.image.image(), faker.image.image(), faker.image.image()],
+      cart_id: carts[index].id,
+    };
+    productsDataList.push(productsData);
+  }
+
+  if (productsDataList) {
+    await prisma.product.createMany({
+      data: productsDataList,
     });
   }
 }

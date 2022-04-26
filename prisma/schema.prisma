@@ -21,6 +21,7 @@ model users {
   created_at    DateTime   @default(now())
   updated_at    DateTime   @default(now())
   password      String?
+  cart          cart?
   comments      comment[]
   locations     location[]
   posts         post[]
@@ -129,6 +130,51 @@ model todo {
   @@index([todo], map: "index_todo_on_todo")
   @@index([updated_at], map: "index_todo_on_updated_at")
   @@index([users_id], map: "index_todo_on_users_id")
+}
+
+model cart {
+  id         String    @id @default(uuid()) @db.Uuid
+  created_at DateTime  @default(now())
+  updated_at DateTime  @default(now())
+  users_id   String?   @unique @db.Uuid
+  users      users?    @relation(fields: [users_id], references: [id])
+  products   product[]
+
+  @@index([created_at], map: "index_cart_on_created_at")
+  @@index([updated_at], map: "index_cart_on_updated_at")
+  @@index([users_id], map: "index_cart_on_users_id")
+}
+
+model product {
+  id                  String   @id @default(uuid()) @db.Uuid
+  title               String?
+  description         String?
+  price               Int?
+  discount_percentage Decimal? @db.Decimal(10, 2)
+  rating              Decimal? @db.Decimal(10, 2)
+  stock               Decimal? @db.Decimal(10, 2)
+  brand               String?
+  category            String?
+  thumbnail           String?
+  images              String[]
+  created_at          DateTime @default(now())
+  updated_at          DateTime @default(now())
+  cart_id             String?  @db.Uuid
+  cart                cart?    @relation(fields: [cart_id], references: [id])
+
+  @@index([brand], map: "index_product_on_brand")
+  @@index([cart_id], map: "index_product_on_cart_id")
+  @@index([category], map: "index_product_on_category")
+  @@index([created_at], map: "index_product_on_created_at")
+  @@index([description], map: "index_product_on_description")
+  @@index([discount_percentage], map: "index_product_on_discount_percentage")
+  @@index([images], map: "index_product_on_images")
+  @@index([price], map: "index_product_on_price")
+  @@index([rating], map: "index_product_on_rating")
+  @@index([stock], map: "index_product_on_stock")
+  @@index([thumbnail], map: "index_product_on_thumbnail")
+  @@index([title], map: "index_product_on_title")
+  @@index([updated_at], map: "index_product_on_updated_at")
 }
 
 model quote {
