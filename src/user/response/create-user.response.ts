@@ -51,6 +51,9 @@ export class Users {
 
   @ApiProperty({ default: [], isArray: true })
   todos: any[];
+
+  @ApiProperty()
+  cart: any;
 }
 
 export class CreateUserResponse {
