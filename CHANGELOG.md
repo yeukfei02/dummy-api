@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.8](https://github.com/yeukfei02/dummy-api/compare/v0.1.7...v0.1.8) (2022-04-26)
+
+
+### Features
+
+* 🎸 add cart and product model ([4a6830b](https://github.com/yeukfei02/dummy-api/commit/4a6830be9a418e38bfbdfe6c4d9a49d5feb13a96))
+* 🎸 add cart api ([6c4d6de](https://github.com/yeukfei02/dummy-api/commit/6c4d6dec8fe943ce3d5f4db0b7d449f2e14091d0))
+* 🎸 add cart in signup and users api response ([cdb21d4](https://github.com/yeukfei02/dummy-api/commit/cdb21d4d532ca74991fc2f39ea52d89b51500848))
+* 🎸 add product api ([71f4c29](https://github.com/yeukfei02/dummy-api/commit/71f4c297b2c5db00315e5317c9343c9039f94a69))
+
 ### [0.1.7](https://github.com/yeukfei02/dummy-api/compare/v0.1.6...v0.1.7) (2022-04-25)
 
 
