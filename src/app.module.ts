@@ -9,6 +9,8 @@ import { PostModule } from './post/post.module';
 import { TagModule } from './tag/tag.module';
 import { CommentModule } from './comment/comment.module';
 import { TodoModule } from './todo/todo.module';
+import { CartModule } from './cart/cart.module';
+import { ProductModule } from './product/product.module';
 import { QuoteModule } from './quote/quote.module';
 
 @Module({
@@ -21,6 +23,8 @@ import { QuoteModule } from './quote/quote.module';
     TagModule,
     CommentModule,
     TodoModule,
+    CartModule,
+    ProductModule,
     QuoteModule,
   ],
   controllers: [AppController],

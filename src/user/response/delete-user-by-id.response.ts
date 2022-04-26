@@ -129,6 +129,9 @@ export class User {
 
   @ApiProperty({ default: [], isArray: true })
   todos: any[];
+
+  @ApiProperty()
+  cart: any;
 }
 export class DeleteUserByIdResponse {
   @ApiProperty()

@@ -40,6 +40,7 @@ export class SignupService {
         posts: true,
         comments: true,
         todos: true,
+        cart: true,
       },
     });
 

@@ -41,6 +41,7 @@ export class UserService {
         posts: true,
         comments: true,
         todos: true,
+        cart: true,
       },
     });
     return users;
@@ -74,6 +75,7 @@ export class UserService {
         posts: true,
         comments: true,
         todos: true,
+        cart: true,
       },
     });
     return users;
@@ -104,6 +106,7 @@ export class UserService {
         posts: true,
         comments: true,
         todos: true,
+        cart: true,
       },
     });
     return users;
@@ -119,6 +122,7 @@ export class UserService {
         posts: true,
         comments: true,
         todos: true,
+        cart: true,
       },
     });
     return users;
