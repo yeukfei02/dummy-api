@@ -72,11 +72,10 @@ export class TodoController {
     type: GetTodosResponse,
   })
   async getTodos(
-    @Query('users_id') users_id: string,
+    @Query('users_id') usersId: string,
     @Query('page') page: string,
     @Query('per_page') perPage: string,
   ): Promise<any> {
-    const usersId = users_id;
     const pageInt = page ? parseInt(page, 10) : 1;
     const perPageInt = page ? parseInt(perPage, 10) : 20;
 
