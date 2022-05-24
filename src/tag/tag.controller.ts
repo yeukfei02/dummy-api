@@ -58,11 +58,10 @@ export class TagController {
     type: GetTagsResponse,
   })
   async getTags(
-    @Query('post_id') post_id: string,
+    @Query('post_id') postId: string,
     @Query('page') page: string,
     @Query('per_page') perPage: string,
   ): Promise<any> {
-    const postId = post_id;
     const pageInt = page ? parseInt(page, 10) : 1;
     const perPageInt = page ? parseInt(perPage, 10) : 20;
 

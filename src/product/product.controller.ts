@@ -74,11 +74,10 @@ export class ProductController {
     type: GetProductsResponse,
   })
   async getProducts(
-    @Query('cart_id') cart_id: string,
+    @Query('cart_id') cartId: string,
     @Query('page') page: string,
     @Query('per_page') perPage: string,
   ): Promise<any> {
-    const cartId = cart_id;
     const pageInt = page ? parseInt(page, 10) : 1;
     const perPageInt = page ? parseInt(perPage, 10) : 20;
 
