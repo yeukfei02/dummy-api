@@ -1,4 +1,5 @@
 import { Module } from '@nestjs/common';
+import { RavenModule } from 'nest-raven';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { SignupModule } from './signup/signup.module';
@@ -26,6 +27,7 @@ import { QuoteModule } from './quote/quote.module';
     CartModule,
     ProductModule,
     QuoteModule,
+    RavenModule,
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -3,6 +3,8 @@ import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { AppModule } from './app.module';
 import helmet from 'helmet';
 import compression from 'compression';
+import * as Sentry from '@sentry/node';
+import '@sentry/tracing';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, { cors: true });
@@ -10,6 +12,15 @@ async function bootstrap() {
   // middleware
   app.use(helmet());
   app.use(compression());
+
+  // sentry
+  Sentry.init({
+    dsn: process.env.SENTRY_DSN,
+
+    // We recommend adjusting this value in production, or using tracesSampler
+    // for finer control
+    tracesSampleRate: 1.0,
+  });
 
   // swagger
   const config = new DocumentBuilder()
