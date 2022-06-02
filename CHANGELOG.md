@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.9](https://github.com/yeukfei02/dummy-api/compare/v0.1.8...v0.1.9) (2022-06-02)
+
+
+### Features
+
+* 🎸 add newrelic ([89c57c6](https://github.com/yeukfei02/dummy-api/commit/89c57c69bc2b2fff27192b547b9125e6d798b31f))
+* 🎸 add sentry ([7f05ae8](https://github.com/yeukfei02/dummy-api/commit/7f05ae8559f576e0118e68d45d9fb07405811997))
+
+
+### Bug Fixes
+
+* 🐛 add node version in package.json ([0e1f878](https://github.com/yeukfei02/dummy-api/commit/0e1f8780ab691468a693bc4625154e5236680531))
+* 🐛 fix var ([0e5272b](https://github.com/yeukfei02/dummy-api/commit/0e5272b4f66fe0424493a43fe5db8530f78f9aaa))
+* 🐛 update prisma lib ([3d90935](https://github.com/yeukfei02/dummy-api/commit/3d90935452af678d173af082bed66a6f1a684225))
+* 🐛 update prisma lib ([e907a17](https://github.com/yeukfei02/dummy-api/commit/e907a176becb65fd360864f2e0ad0788737db5fd))
+* 🐛 update test case ([ca4305f](https://github.com/yeukfei02/dummy-api/commit/ca4305ff45ffb37b79b55ea27f352e907ee617c9))
+* 🐛 update todo test case ([3a9e9ad](https://github.com/yeukfei02/dummy-api/commit/3a9e9add3b4d1aac312b3fdd4e539e7567ea307f))
+
 ### [0.1.8](https://github.com/yeukfei02/dummy-api/compare/v0.1.7...v0.1.8) (2022-04-26)
 
 
