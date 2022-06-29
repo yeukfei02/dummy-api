@@ -1,6 +1,6 @@
 {
   "name": "dummy-api",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "main": "index.js",
   "repository": "https://github.com/yeukfei02/dummy-api.git",
   "author": "Donald Wu <yeukfei02@gmail.com>",

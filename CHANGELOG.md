@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.10](https://github.com/yeukfei02/dummy-api/compare/v0.1.9...v0.1.10) (2022-06-29)
+
+
+### Features
+
+* 🎸 add ConfigModule ([0d579fe](https://github.com/yeukfei02/dummy-api/commit/0d579fe0da4b271871bf09043e83a0e200c1392f))
+
+
+### Bug Fixes
+
+* 🐛 update prisma lib and fix newrelic.js ([783b572](https://github.com/yeukfei02/dummy-api/commit/783b572a2f0d3323fbf5bb39d482098cbe80cb8d))
+
 ### [0.1.9](https://github.com/yeukfei02/dummy-api/compare/v0.1.8...v0.1.9) (2022-06-02)
 
 
