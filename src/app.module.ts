@@ -1,4 +1,5 @@
 import { Module } from '@nestjs/common';
+import { ConfigModule } from '@nestjs/config';
 import { RavenModule } from 'nest-raven';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -16,6 +17,7 @@ import { QuoteModule } from './quote/quote.module';
 
 @Module({
   imports: [
+    ConfigModule.forRoot(),
     SignupModule,
     LoginModule,
     UserModule,
