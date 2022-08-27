@@ -10,10 +10,6 @@ Api for playing around with dummy data. Feel free to use it in your demo project
 
 documentation: <https://documenter.getpostman.com/view/3827865/Uyr8kHHD>
 
-swagger url: <https://dummy-api-nestjs.herokuapp.com/api>
-
-api url: <https://dummy-api-nestjs.herokuapp.com/>
-
 ## Requirement
 
 - install yarn
