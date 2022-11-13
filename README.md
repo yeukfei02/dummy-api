@@ -10,8 +10,6 @@ Api for playing around with dummy data. Feel free to use it in your demo project
 
 documentation: <https://documenter.getpostman.com/view/3827865/Uyr8kHHD>
 
-api url: <https://web-production-7e77.up.railway.app>
-
 ## Requirement
 
 - install yarn
