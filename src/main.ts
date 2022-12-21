@@ -8,9 +8,10 @@ import '@sentry/tracing';
 import { NewrelicInterceptor } from './newrelic.interceptor';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule, { cors: true });
+  const app = await NestFactory.create(AppModule);
 
   // middleware
+  app.enableCors();
   app.use(helmet());
   app.use(compression());
 
