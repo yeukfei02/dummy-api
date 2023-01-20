@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.11](https://github.com/yeukfei02/dummy-api/compare/v0.1.10...v0.1.11) (2023-01-20)
+
+
+### Bug Fixes
+
+* 🐛 fix package.json node version and add commitlint lib ([b546b75](https://github.com/yeukfei02/dummy-api/commit/b546b757928da02388ce909d4082b627f9912901))
+* 🐛 fix yarn version ([ac25cb1](https://github.com/yeukfei02/dummy-api/commit/ac25cb114203c67e7408bf2b230d54fedf56e18e))
+* 🐛 update api url in readme.md ([fca00d3](https://github.com/yeukfei02/dummy-api/commit/fca00d3ca169a25c9a3210b6751219550ebbd0c9))
+* 🐛 update docker-compose.yml ([dd6cff0](https://github.com/yeukfei02/dummy-api/commit/dd6cff0e71417b323c5b57cb3fc415c17425de59))
+* 🐛 update primsa lib, package.json scripts and readme.md ([b345de6](https://github.com/yeukfei02/dummy-api/commit/b345de6ed0ddd355018ceeb247db81887cfac40c))
+* 🐛 update prisma lib ([1a9e5a4](https://github.com/yeukfei02/dummy-api/commit/1a9e5a4fbd2873c56198326a340629dd3f769b3f))
+* 🐛 update prisma lib ([8c48018](https://github.com/yeukfei02/dummy-api/commit/8c4801872593b5d9347629b7328ec5192b2482f2))
+* 🐛 update readme.md ([f907559](https://github.com/yeukfei02/dummy-api/commit/f9075590dbf46990732571ae623e4d69f5e0bd69))
+* 🐛 update readme.md ([a7f1a1f](https://github.com/yeukfei02/dummy-api/commit/a7f1a1f77f7cd5c9f3acdfa619438b8a18871301))
+* 🐛 update readme.md ([062aeab](https://github.com/yeukfei02/dummy-api/commit/062aeab23f0a1c74983198c3c57b4677b9efa336))
+
 ### [0.1.10](https://github.com/yeukfei02/dummy-api/compare/v0.1.9...v0.1.10) (2022-06-29)
 
 
