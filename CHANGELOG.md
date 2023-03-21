@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.12](https://github.com/yeukfei02/dummy-api/compare/v0.1.11...v0.1.12) (2023-03-21)
+
+
+### Bug Fixes
+
+* 🐛 remove api url in readme.md ([21e19b0](https://github.com/yeukfei02/dummy-api/commit/21e19b069c02d5d88784870b52e1acd31cd13150))
+* 🐛 update prisma lib ([adb641a](https://github.com/yeukfei02/dummy-api/commit/adb641a0d10a2cb09a227edaec34e41ba64d2c73))
+
 ### [0.1.11](https://github.com/yeukfei02/dummy-api/compare/v0.1.10...v0.1.11) (2023-01-20)
 
 
