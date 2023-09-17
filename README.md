@@ -8,30 +8,32 @@ Api for playing around with dummy data. Feel free to use it in your demo project
 
 - listing api default page = 1, default per page = 20
 
+swagger: <http://localhost:3000/api/>
+
 documentation: <https://documenter.getpostman.com/view/3827865/Uyr8kHHD>
 
 ## Requirement
 
-- install yarn
-- install node (v14+)
+- install pnpm
+- install node (v18+)
 
 ## Testing and run
 
 ```zsh
 // test api in local
-$ yarn run start:dev
+$ pnpm run start:dev
 
 // run in production
-$ yarn run start:prod
+$ pnpm run start:prod
 
 // lint code
-$ yarn run lint
+$ pnpm run lint
 
 // format code
-$ yarn run format
+$ pnpm run format
 
 // run test case
-$ yarn run test
+$ pnpm run test
 
 // create module
 $ nest g module <module-name>
@@ -43,34 +45,34 @@ $ nest g controller <controller-name>
 $ nest g service <service-name>
 
 // generate schema.prisma and prisma client
-$ yarn run prisma:generate
+$ pnpm run prisma:generate
 
 // create migration file if schema.prisma changed
-$ yarn run prisma:migrate:dev
+$ pnpm run prisma:migrate:dev
 
 // reset database
-$ yarn run prisma:migrate:reset
+$ pnpm run prisma:migrate:reset
 
 // apply pending migrations in the production/staging database
-$ yarn run prisma:migrate:deploy
+$ pnpm run prisma:migrate:deploy
 
 // check migrations status in the production/staging database
-$ yarn run prisma:migrate:status
+$ pnpm run prisma:migrate:status
 
 // push schema.prisma state to database
-$ yarn run prisma:db:push
+$ pnpm run prisma:db:push
 
 // seed data to database
-$ yarn run prisma:db:seed
+$ pnpm run prisma:db:seed
 
 // validate schema.prisma
-$ yarn run prisma:validate
+$ pnpm run prisma:validate
 
 // format schema.prisma
-$ yarn run prisma:format
+$ pnpm run prisma:format
 
 // open prisma studio
-$ yarn run prisma:studio
+$ pnpm run prisma:studio
 ```
 
 ## Docker
