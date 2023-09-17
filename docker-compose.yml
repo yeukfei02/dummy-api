@@ -32,7 +32,7 @@ services:
     container_name: prisma-studio
     build:
       context: .
-    command: yarn run prisma:studio
+    command: pnpm run prisma:studio
     volumes:
       - .:/usr/src/app
       - /usr/src/app/node_modules
