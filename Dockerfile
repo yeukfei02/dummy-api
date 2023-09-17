@@ -6,10 +6,10 @@ WORKDIR /usr/src/app
 
 COPY ./ .
 
-RUN yarn
+RUN pnpm
 
-RUN yarn run build
+RUN pnpm run build
 
 EXPOSE 3000
 
-CMD [ "yarn", "start:prod" ]
+CMD [ "pnpm", "start:prod" ]

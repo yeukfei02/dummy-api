@@ -87,7 +87,7 @@
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "nest build && cp ./prisma/schema.prisma ./dist/prisma",
-    "heroku-postbuild": "yarn run prebuild && tsc -p tsconfig.build.json && cp ./prisma/schema.prisma ./dist/prisma",
+    "heroku-postbuild": "pnpm run prebuild && tsc -p tsconfig.build.json && cp ./prisma/schema.prisma ./dist/prisma",
     "start": "nest start",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
