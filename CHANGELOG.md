@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.13](https://github.com/yeukfei02/dummy-api/compare/v0.1.12...v0.1.13) (2023-09-17)
+
+
+### Bug Fixes
+
+* 🐛 update dockerfile ([88dbb70](https://github.com/yeukfei02/dummy-api/commit/88dbb70a1fe52a1fbbb20b262f9d6a782959ea34))
+* 🐛 update prisma, use node 18, use pnpm ([c7d5ac7](https://github.com/yeukfei02/dummy-api/commit/c7d5ac7c2ca094d91c1d8edcb05d7b8d8c2243ef))
+* 🐛 use pnpm ([cc510bd](https://github.com/yeukfei02/dummy-api/commit/cc510bdd8ffb9c4ab61a5cbd70c89797099be36c))
+
 ### [0.1.12](https://github.com/yeukfei02/dummy-api/compare/v0.1.11...v0.1.12) (2023-03-21)
 
 
